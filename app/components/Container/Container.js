@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import { View } from "react-native";
+import { View, Image, ImageBackground } from "react-native";
 import styles from "./styles";
 
 const Container = ({ children }) => (

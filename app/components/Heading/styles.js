@@ -1,5 +1,8 @@
 import EStyleSheet from "react-native-extended-stylesheet";
 import { StatusBar } from "react-native";
+import { Dimensions } from "react-native";
+
+const fourthHeight = Dimensions.get("window").height / 4;
 
 export default EStyleSheet.create({
   text: {
@@ -12,5 +15,9 @@ export default EStyleSheet.create({
     "@media android": {
       paddingTop: StatusBar.currentHeight
     }
+  },
+  centerWhite: {
+    color: "$white",
+    paddingTop: fourthHeight
   }
 });
