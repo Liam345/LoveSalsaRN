@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StatusBar } from "react-native";
 import { ImageContainer } from "../components/Container";
 import { Heading } from "../components/Heading";
-//import { Button } from "../components/Button";
+import { Button } from "../components/Button";
 import { Dimensions } from "react-native";
 
 const fourthHeight = Dimensions.get("window").height / 1.5;
@@ -24,7 +24,7 @@ export default () => (
         Learning to dance takes time. Why don't we start with a simple challenge
         ?
       </Text>
-      {/* <Button text={"Enter text here"} /> */}
+      <Button text={"Enter text here"} />
     </View>
   </ImageContainer>
 );

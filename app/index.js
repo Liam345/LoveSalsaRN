@@ -4,10 +4,11 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import Home from "./screens/Home";
 import Challenges from "./screens/Challenges";
 import Videos from "./screens/Videos";
+import DisplayLocation from "./screens/DisplayLocation";
 
 export default class App extends Component {
   render() {
-    return <Videos />;
+    return <DisplayLocation />;
   }
 }
 
