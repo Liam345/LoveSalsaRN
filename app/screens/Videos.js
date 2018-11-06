@@ -22,5 +22,3 @@ class Videos extends React.Component {
 
 export default Videos;
 //https://www.youtube.com/embed?time_continue=13&v=vo1VMAbpRnc
-
-//https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0
