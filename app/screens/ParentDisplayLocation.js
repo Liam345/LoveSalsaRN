@@ -1,29 +1,34 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
-// import meetupData from "../data/meetupData";
+import { View, Text, Button, Alert } from "react-native";
 import DisplayLocation from "./DisplayLocation";
 
 class ParentDisplayLocation extends React.Component {
   state = {
-    events: [
-      {
+    //move this to config/ data or something
+    currEvent: {
+      name: "TSF",
+      venue: {
         name: "TSF",
-        venue: {
-          name: "TSF",
-          address_1: "600 Little Collins Street",
-          city: "Melbourne"
-        },
-        featured_photo: {
-          photo_link:
-            "https://secure.meetupstatic.com/photos/event/d/d/c/a/600_471296778.jpeg"
-        },
-        local_date: "20-05-2018",
-        local_time: "19:30"
-      }
-    ]
+        address_1: "600 Little Collins Street",
+        city: "Melbourne"
+      },
+      featured_photo: {
+        photo_link:
+          "https://secure.meetupstatic.com/photos/event/d/d/c/a/600_471296778.jpeg"
+      },
+      local_date: "20-05-2018",
+      local_time: "19:30"
+    },
+    events: []
   };
 
-  onRandomBtnPress() {}
+  onRandomBtnPress = () => {
+    let ceil = this.state.events.length; //ceil is not inclusive in js random
+    let floor = 0;
+    let randomEvent = Math.floor(Math.random() * ceil + floor);
+    let event = this.state.events[randomEvent];
+    this.setState({ currEvent: event });
+  };
 
   getEventsFromMeetupAPI() {
     fetch(
@@ -32,9 +37,7 @@ class ParentDisplayLocation extends React.Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({ events: responseJson.events });
-        this.setState({
-          picture: { uri: responseJson.events[0].featured_photo.photo_link }
-        });
+        this.setState({ currEvent: responseJson.events[0] });
       })
       .catch(error => {
         console.error(error);
@@ -47,7 +50,7 @@ class ParentDisplayLocation extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <DisplayLocation event={this.state.events[0]} />
+        <DisplayLocation event={this.state.currEvent} />
         <Button onPress={this.onRandomBtnPress} title="Press me" />
       </View>
     );

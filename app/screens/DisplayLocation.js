@@ -12,24 +12,56 @@ class DisplayLocation extends React.Component {
   }
 
   render() {
+    //Is there a better method of checking wheteher element exists.
+    //Implemented the if statements event and event.venue below because
+    //in some elemts event.venue did not exist
+    //This caused 'Cannot read property of undefined' errors.
     let { event } = this.props;
+    let eventName = null;
+    let eventDate = null;
+    let eventTime = null;
+    let venueName = null;
+    let venueAddress = null;
+    let venueCity = null;
+    let eventPhoto =
+      "https://secure.meetupstatic.com/photos/event/d/d/c/a/600_471296778.jpeg";
+
+    if (event) {
+      eventName = event.name;
+      eventDate = event.local_date;
+      eventTime = event.local_time;
+    }
+
+    if (event.venue) {
+      venueName = event.venue.name;
+      venueAddress = event.venue.address_1;
+      venueCity = event.venue.city;
+    }
+
+    if (event.featured_photo) {
+      eventPhoto = event.featured_photo.photo_link;
+    }
+
     return (
       <View style={{ flex: 1 }}>
         <Heading>Let's Dance At</Heading>
         <View>
           <Image
+            borderRadius={1}
             style={{ height: 400, width: screenWidth, position: "absolute" }}
-            source={{ uri: event.featured_photo.photo_link }}
+            source={{
+              uri: eventPhoto
+            }}
           />
         </View>
         <ScrollView style={{ marginTop: fourthScreenHeight }}>
           <Card
-            title={event.name}
-            date={event.local_date}
-            fromTime={event.local_time}
-            venueName={event.venue.name}
-            address={event.venue.address_1}
-            city={event.venue.city}
+            title={eventName}
+            date={eventDate}
+            fromTime={eventTime}
+            venueName={venueName}
+            address={venueAddress}
+            city={venueCity}
           />
         </ScrollView>
       </View>
