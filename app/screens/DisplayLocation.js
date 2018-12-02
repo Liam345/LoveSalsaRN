@@ -3,6 +3,7 @@ import { View, ScrollView, Image } from "react-native";
 import { Heading } from "../components/Heading";
 import { Card } from "../components/Card";
 import { Dimensions } from "react-native";
+import { defaultEvent } from "../config/api/events";
 const screenWidth = Dimensions.get("window").width;
 const fourthScreenHeight = Dimensions.get("window").height / 4;
 
@@ -23,8 +24,7 @@ class DisplayLocation extends React.Component {
     let venueName = null;
     let venueAddress = null;
     let venueCity = null;
-    let eventPhoto =
-      "https://secure.meetupstatic.com/photos/event/d/d/c/a/600_471296778.jpeg";
+    let eventPhoto = { defaultEvent }.featured_photo.photo_link;
 
     if (event) {
       eventName = event.name;

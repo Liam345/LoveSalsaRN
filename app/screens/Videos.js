@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StatusBar, ScrollView, WebView } from "react-native";
+import { View, WebView } from "react-native";
 import { Heading } from "../components/Heading";
 
 class Videos extends React.Component {
@@ -21,4 +21,3 @@ class Videos extends React.Component {
 }
 
 export default Videos;
-//https://www.youtube.com/embed?time_continue=13&v=vo1VMAbpRnc
