@@ -4,6 +4,7 @@ import { Heading } from "../components/Heading";
 import { Card } from "../components/Card";
 import { Dimensions } from "react-native";
 import { defaultEvent } from "../config/api/events";
+
 const screenWidth = Dimensions.get("window").width;
 const fourthScreenHeight = Dimensions.get("window").height / 4;
 
@@ -13,7 +14,7 @@ class DisplayLocation extends React.Component {
   }
 
   render() {
-    //Is there a better method of checking wheteher element exists.
+    //Is there a better method of checking wheeher element exists.
     //Implemented the if statements event and event.venue below because
     //in some elemts event.venue did not exist
     //This caused 'Cannot read property of undefined' errors.
@@ -24,7 +25,7 @@ class DisplayLocation extends React.Component {
     let venueName = null;
     let venueAddress = null;
     let venueCity = null;
-    let eventPhoto = { defaultEvent }.featured_photo.photo_link;
+    let eventPhoto = defaultEvent.featured_photo.photo_link;
 
     if (event) {
       eventName = event.name;
