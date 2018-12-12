@@ -5,47 +5,38 @@ import ParentDisplayLocation from "../screens/ParentDisplayLocation";
 import Home from "../screens/Home";
 import Videos from "../screens/Videos";
 
-const TabConfig = createBottomTabNavigator(
-  {
-    Challenges: {
-      screen: Challenges,
-      navigationOptions: {
-        tabBarLabel: "Challenges"
-      }
-    },
-    ParentDisplayLocation: {
-      screen: ParentDisplayLocation,
-      navigationOptions: {
-        tabBarLabel: "DisplayLocation"
-      }
-    },
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        tabBarLabel: "Home"
-      }
-    },
-    Videos: {
-      screen: Videos,
-      navigationOptions: {
-        tabBarLabel: "Videos"
-      }
+const TabConfig = createBottomTabNavigator({
+  Challenges: {
+    screen: Challenges,
+    navigationOptions: {
+      tabBarLabel: "Challenges",
+      headerTitle: "Challenges"
+    }
+  },
+  ParentDisplayLocation: {
+    screen: ParentDisplayLocation,
+    navigationOptions: {
+      tabBarLabel: "DisplayLocation"
+    }
+  },
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      tabBarLabel: "Home"
+    }
+  },
+  Videos: {
+    screen: Videos,
+    navigationOptions: {
+      tabBarLabel: "Videos"
     }
   }
-  //   ,
-  //   {
-  //     initialRouteName: "Challenges",
-  //     activeColor: "#f0edf6",
-  //     inactiveColor: "#3e2465",
-  //     barStyle: { backgroundColor: "#694fad" }
-  //   }
-);
+});
 
 const TabStyleConfig = {
   tabBarOptions: {
     activeTintColor: "#fe0000"
   }
 };
-
 const HomeBottomStack = createAppContainer(TabConfig, TabStyleConfig);
-export default HomeBottomStack;
+export default createAppContainer(HomeBottomStack);

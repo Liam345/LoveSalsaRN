@@ -5,10 +5,11 @@ import Home from "./screens/Home";
 import Challenges from "./screens/Challenges";
 import Videos from "./screens/Videos";
 import ParentDisplayLocation from "./screens/ParentDisplayLocation";
+import HomeBottomStack, { HomeStack } from "./config/routes";
 
 export default class App extends Component {
   render() {
-    return <ParentDisplayLocation />;
+    return <HomeBottomStack />;
   }
 }
 
